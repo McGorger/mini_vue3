@@ -1,2 +1,2 @@
 # mini_vue3
-练习vue3
+练习vue
