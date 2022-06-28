@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "execa": "^5.0.0",
+    "rollup": "^2.75.7",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "typescript": "^4.7.4"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "name": "mini_vue3",
+  "description": "练习vue",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node script/dev.js",
+    "build": "node script/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/McGorger/mini_vue3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/McGorger/mini_vue3/issues"
+  },
+  "homepage": "https://github.com/McGorger/mini_vue3#readme"
+}
