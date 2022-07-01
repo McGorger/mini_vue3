@@ -1,7 +1,2 @@
-import {} from '@vue/shared'
-const Reactivity = {
-
-}
-export {
-    Reactivity
-}
+export { reactive } from './reactive'
+export { effect } from './effect'

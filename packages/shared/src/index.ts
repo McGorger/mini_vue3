@@ -1,3 +1,5 @@
+import { reactive } from '@vue/reactivity';
+
 const shared = {
 
 }
