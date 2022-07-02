@@ -1,8 +1,1 @@
-import { reactive } from '@vue/reactivity';
-
-const shared = {
-
-}
-export {
-    shared
-}
+export const extend = Object.assign;
