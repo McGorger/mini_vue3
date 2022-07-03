@@ -1,5 +1,7 @@
 // import { extend } from '@vue/shared'
 import { extend } from '../../shared/src/index';
+let activeEffect;
+let shouldTrack;
 class ReactiveEffect {
     private _fn: any;
     deps = [];
@@ -11,8 +13,15 @@ class ReactiveEffect {
         this.scheduler = scheduler;
     }
     run() {
+        if(!this.active) {
+            return this._fn();
+        }
+        shouldTrack = true;
         activeEffect = this;
-        return this._fn();
+        const result = this._fn();
+        shouldTrack = false;
+        return result
+       
     }
     stop() {
         if(this.active) {
@@ -30,9 +39,11 @@ function cleanupEffect(effect) {
     effect.deps.forEach((dep: any) => {
         dep.delete(effect);
     })
+    effect.deps.length = 0;
 }
 
 export function track(target, key) {
+    if(!isTracking()) return;
     // target --> key -- dep
     let depsMap = targetMap.get(target);
     if(!depsMap) {
@@ -44,9 +55,13 @@ export function track(target, key) {
         dep = new Set();
         depsMap.set(key, dep)
     }
-    activeEffect?.deps.push(dep);
+    // 已经在dep中
+    if(dep.has(activeEffect)) return;
+    activeEffect.deps.push(dep);
     dep.add(activeEffect);
-    
+}
+function isTracking() {
+    return shouldTrack && activeEffect !== undefined;
 }
 export function trigger(target, key) {
     let depsMap = targetMap.get(target);
@@ -59,7 +74,6 @@ export function trigger(target, key) {
         }
     }
 }
-let activeEffect;
 export function effect(fn, options: any = {}) {
     // fn
     const _effect = new ReactiveEffect(fn, options.scheduler);
