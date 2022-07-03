@@ -1,6 +1,1 @@
-const shared = {
-
-}
-export {
-    shared
-}
+export const extend = Object.assign;
