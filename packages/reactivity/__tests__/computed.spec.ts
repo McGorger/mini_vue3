@@ -1,4 +1,4 @@
-import {reactive, computed} from '../src';
+import {reactive, computed} from '@vue/reactivity';
 describe("computed", () => {
     it("happy path" , () => {
         const value = reactive({

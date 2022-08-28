@@ -1,5 +1,4 @@
-// import { extend } from '@vue/shared'
-import { extend } from '../../shared/src/index';
+import { extend } from '@vue/shared';
 let activeEffect;
 let shouldTrack;
 export class ReactiveEffect {

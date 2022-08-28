@@ -1,4 +1,4 @@
-import { reactive, effect, stop } from '../src/index';
+import { reactive, effect, stop } from '@vue/reactivity';
 describe('effect', () => {
      
      it('happy path', () => {
