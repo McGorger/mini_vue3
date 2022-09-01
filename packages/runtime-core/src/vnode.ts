@@ -1,5 +1,5 @@
 import { isArray, isObject, isString, ShapeFlags } from "@vue/shared"
-
+export const isVnode = node => !!node?.__v_isVnode;
 export function createVNode(type, props?, children?) {
     const shapeFlag = isString(type) ? ShapeFlags.ELEMENT : isObject(type) ? ShapeFlags.STATEFUL_COMPONENT : 0;
     // 根据type区分组件还是元素

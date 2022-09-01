@@ -30,6 +30,8 @@ const hyphenate = cacheStringFunction((str) => str.replace(hyphenateRE, '-$1').t
  * @private
  */
 const capitalize = cacheStringFunction((str) => str.charAt(0).toUpperCase() + str.slice(1));
+const isFunction = (val) => typeof val === 'function';
+const isSymbol = (val) => typeof val === 'symbol';
 
-export { camelize, capitalize, extend, hasChange, hasOwn, hyphenate, isArray, isObject, isString };
+export { camelize, capitalize, extend, hasChange, hasOwn, hyphenate, isArray, isFunction, isObject, isString, isSymbol };
 //# sourceMappingURL=shared.esm-bundler.js.map

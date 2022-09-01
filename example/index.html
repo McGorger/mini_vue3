@@ -13,10 +13,13 @@
         const {createApp, h} = VueRuntimeDom;
         let APP = {
             setup(props, context) {
-                console.log('ok', props, context);
+                return () => {
+                    return h('div',  'span')
+                }
             },
             render(proxy) {
-               console.log(proxy.name, 123)
+                console.log(proxy.name, this.age)
+            //    return h('div', {style: {color: 'red'}}, 'span')
             }
         }
         createApp(APP, {name: 'zhufeng', age: 10}).mount('#app');

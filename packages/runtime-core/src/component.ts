@@ -12,7 +12,7 @@ export function createComponentInstance(vnode) {
         data: {},
         setupState: {},
         render: null,
-        isMount: false
+        isMounted: false
     }
     instance.ctx = { _: instance}
     return instance
@@ -39,7 +39,6 @@ function setupStatefullComponent(instance: any) {
     if(setup) {    
         const setupContext = createContext(instance);
         const setupResult = setup(instance.props, setupContext);
-        // Component.render(instance.proxy)
         handleSetupResult(instance, setupResult);
     } else {
         finishComponentSetup(instance )
@@ -71,9 +70,6 @@ function finishComponentSetup(instance) {
         if(Component.render && Component.template) {
             
         }
-        instance.render = Component.render;
- 
-    }else {
         instance.render = Component.render;
     }
 }

@@ -34,6 +34,8 @@ const hyphenate = cacheStringFunction((str) => str.replace(hyphenateRE, '-$1').t
  * @private
  */
 const capitalize = cacheStringFunction((str) => str.charAt(0).toUpperCase() + str.slice(1));
+const isFunction = (val) => typeof val === 'function';
+const isSymbol = (val) => typeof val === 'symbol';
 
 exports.camelize = camelize;
 exports.capitalize = capitalize;
@@ -42,6 +44,8 @@ exports.hasChange = hasChange;
 exports.hasOwn = hasOwn;
 exports.hyphenate = hyphenate;
 exports.isArray = isArray;
+exports.isFunction = isFunction;
 exports.isObject = isObject;
 exports.isString = isString;
+exports.isSymbol = isSymbol;
 //# sourceMappingURL=shared.cjs.js.map

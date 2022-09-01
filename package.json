@@ -24,7 +24,7 @@
   },
   "scripts": {
     "dev": "node script/dev.js",
-    "build": "node script/build.js --watch",
+    "build": "node script/build.js",
     "test": "jest"
   },
   "repository": {
