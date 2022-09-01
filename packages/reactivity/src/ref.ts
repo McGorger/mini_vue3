@@ -1,5 +1,5 @@
 import { trackEffects, isTracking, triggerEffects } from './effect';
-import { hasChnange, isObject } from '../../shared/src/index';
+import { hasChange, isObject } from '../../shared/src/index';
 import { reactive } from './reactive';
 
 class RefImpl {
@@ -18,7 +18,7 @@ class RefImpl {
     }
     set value(newValue) {
         // hasChnange
-        if(!hasChnange(newValue, this._rawValue)) return; 
+        if(!hasChange(newValue, this._rawValue)) return; 
         this._rawValue = newValue;
         this._value =  convert(newValue);
         triggerEffects(this.dep);
