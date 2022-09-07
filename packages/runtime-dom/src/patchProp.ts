@@ -10,6 +10,7 @@ export const patchProp = (el, key, preValue, nextValue) => {
             break;
         case "style":
             patchStyle(el, preValue, nextValue);
+            break;
         default:
             if(/^on[^a-z]/.test(key)) {
                 patchEvent(el, key,  preValue, nextValue);
